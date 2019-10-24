@@ -4,7 +4,6 @@ RUN pip install web.py
 
 COPY templates /src/templates
 COPY *.py /src/
-COPY *.txt /src/
 
 WORKDIR /src
 
