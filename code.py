@@ -1,4 +1,5 @@
 import web
+import json
 
 render = web.template.render('templates/')
 
@@ -9,6 +10,12 @@ urls = (
 class index:
     def GET(self, name):
         return render.index(name)
+
+    def POST(self, x):
+        print ("x is", x)
+        data = json.loads(web.data())
+        value = data["name"]
+        return "Hello " + value + "!"
 
 
 if __name__ == "__main__":
