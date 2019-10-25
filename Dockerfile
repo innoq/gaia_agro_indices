@@ -3,6 +3,7 @@ FROM python:3.6.9-alpine
 RUN pip install web.py
 
 COPY templates /src/templates
+COPY data /src/data
 COPY *.py /src/
 
 WORKDIR /src
