@@ -1,6 +1,6 @@
 FROM python:3.6.9-alpine
 
-RUN pip install web.py rasterio
+RUN pip install web.py
 
 COPY templates /src/templates
 COPY *.py /src/
