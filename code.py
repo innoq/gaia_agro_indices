@@ -20,11 +20,13 @@ class index:
         return "Hello " + value + "!\n"
 
 class imagemock:
-    def POST(self, _):
-        data = json.loads(web.data())
-        return "WIP"
-
-
+    def GET(self):
+        web.header('Content-Type', 'image/png')
+        with open('somefile.txt', 'a') as the_file:
+            imageBinary = open("data/Hobbes.jpg", 'rb').read()
+            #imageBinary = open("README.md", 'rb').read()
+            return imageBinary
+        return "Error 500"
 
 
 if __name__ == "__main__":
