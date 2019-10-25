@@ -4,18 +4,27 @@ import json
 render = web.template.render('templates/')
 
 urls = (
-    '/(.*)', 'index'
+    '/', 'index',
+    '/image/ndvi/mock/', 'imagemock'
+
 )
 
 class index:
-    def GET(self, name):
+    def GET(self):
+        name = 'GAIA!'
         return render.index(name)
 
     def POST(self, x):
-        print ("x is", x)
         data = json.loads(web.data())
         value = data["name"]
-        return "Hello " + value + "!"
+        return "Hello " + value + "!\n"
+
+class imagemock:
+    def POST(self, _):
+        data = json.loads(web.data())
+        return "WIP"
+
+
 
 
 if __name__ == "__main__":
