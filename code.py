@@ -22,12 +22,8 @@ class index:
 class imagemock:
     def GET(self):
         web.header('Content-Type', 'image/png')
-        with open('somefile.txt', 'a') as the_file:
-            imageBinary = open("data/Hobbes.jpg", 'rb').read()
-            #imageBinary = open("README.md", 'rb').read()
-            return imageBinary
-        return "Error 500"
-
+        imageBinary = open("data/Hobbes.jpg", 'rb').read()
+        return imageBinary
 
 if __name__ == "__main__":
     app = web.application(urls, globals())
