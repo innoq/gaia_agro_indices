@@ -3,4 +3,4 @@ venv
 staticfiles
 .env
 .idea
-
+cache/*.tif
