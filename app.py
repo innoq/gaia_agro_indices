@@ -21,19 +21,11 @@ class index:
         value = data["name"]
         return "Hello " + value + "!\n"
 
-<<<<<<< HEAD
-class imagemock:
-    def GET(self):
-        web.header('Content-Type', 'image/png')
-        imageBinary = open("data/Hobbes.jpg", 'rb').read()
-        return imageBinary
-=======
 class image:
     def POST(self):
         print ("payload", web.data())
         geoJSON = json.loads(web.data())
         shapes = [feature["geometry"] for feature in geoJSON["features"]]
-        print("shapes", shapes)
 
         with rasterio.open("data/T35MRU_20190915T080611_AOT_10m_ndvi-colored-compressed-wgs84.tif") as src:
             out_image, out_transform = mask.mask(src, shapes, crop=True)
@@ -54,8 +46,6 @@ class image:
             return imageBinary
 
         return "error"
-
->>>>>>> modify controller aciton to respond with cropped image
 
 if __name__ == "__main__":
     app = web.application(urls, globals())
